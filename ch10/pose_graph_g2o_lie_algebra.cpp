@@ -52,6 +52,7 @@ public:
             Quaterniond(data[6], data[3], data[4], data[5]),
             Vector3d(data[0], data[1], data[2])
         ));
+	return true;
     }
 
     virtual bool write(ostream &os) const override {
@@ -155,7 +156,7 @@ int main(int argc, char **argv) {
 
     vector<VertexSE3LieAlgebra *> vectices;
     vector<EdgeSE3LieAlgebra *> edges;
-    while (!fin.eof()) {
+    while (fin.eof() != EOF) {
         string name;
         fin >> name;
         if (name == "VERTEX_SE3:QUAT") {

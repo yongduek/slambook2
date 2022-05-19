@@ -34,3 +34,7 @@
 *cmake-build-*
 *.idea
 **build**
+ch9/final.ply
+ch9/initial.ply
+ch10/result.g2o
+ch10/result_lie.g2o
