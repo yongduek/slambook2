@@ -14,6 +14,8 @@ using namespace std;
  * ************************************************/
 
 int main( int argc, char** argv ) {
+    vector<string> msg{"hello", "C++", "World"};
+    
     // read the image 
     cout<<"reading images... "<<endl;
     vector<Mat> images; 
@@ -24,14 +26,18 @@ int main( int argc, char** argv ) {
     }
     // detect ORB features
     cout<<"detecting ORB features ... "<<endl;
+    
     Ptr< Feature2D > detector = ORB::create();
     vector<Mat> descriptors;
-    for ( Mat& image:images )
+    for ( Mat& image : images )
     {
         vector<KeyPoint> keypoints; 
         Mat descriptor;
         detector->detectAndCompute( image, Mat(), keypoints, descriptor );
         descriptors.push_back( descriptor );
+
+        cout << "keypoints: " << keypoints.size() << endl;
+        cout << descriptor.size() << endl; 
     }
     
     // create vocabulary 

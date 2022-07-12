@@ -21,6 +21,8 @@ int main(int argc, char **argv) {
         cerr << "Vocabulary does not exist." << endl;
         return 1;
     }
+    cout << "Vocab Size: " << vocab.size() << endl;
+
     cout << "reading images... " << endl;
     vector<Mat> images;
     for (int i = 0; i < 10; i++) {
@@ -51,6 +53,14 @@ int main(int argc, char **argv) {
             vocab.transform(descriptors[j], v2);
             double score = vocab.score(v1, v2);
             cout << "image " << i << " vs image " << j << " : " << score << endl;
+
+            if (i == 0 && j == 1) {
+                const DBoW3::BowVector::const_iterator v1_it = v1.begin();
+                for (auto const it : v1)
+                printf("<%d, %f> ", it.first, it.second);
+                // printf("<%d, %f>", v1_it->first, v1_it->second);
+                printf(" v1: %lu \n", v1.size());
+            }
         }
         cout << endl;
     }
