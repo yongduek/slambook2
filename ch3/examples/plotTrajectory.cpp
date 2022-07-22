@@ -1,5 +1,6 @@
 #include <pangolin/pangolin.h>
 #include <Eigen/Core>
+#include <Eigen/Geometry>
 #include <unistd.h>
 
 // 本例演示了如何画出一个预先存储的轨迹
@@ -17,8 +18,13 @@ int main(int argc, char **argv) {
   vector<Isometry3d, Eigen::aligned_allocator<Isometry3d>> poses;
   ifstream fin(trajectory_file);
   if (!fin) {
-    cout << "cannot find trajectory file at " << trajectory_file << endl;
-    return 1;
+    cout << "cannot find default trajectory file at " << trajectory_file << endl;
+    if (argc == 2) {
+      cout << "trying to open " << argv[1] << endl;
+      fin.open(argv[1]);
+      if (fin.eof()) return 1;
+    }
+    else return 1;
   }
 
   while (!fin.eof()) {
