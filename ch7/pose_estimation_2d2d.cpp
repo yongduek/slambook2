@@ -28,13 +28,20 @@ void pose_estimation_2d2d(
 Point2d pixel2cam(const Point2d &p, const Mat &K);
 
 int main(int argc, char **argv) {
+  char * fname_1, *fname_2;
   if (argc != 3) {
-    cout << "usage: pose_estimation_2d2d img1 img2" << endl;
-    return 1;
+    // cout << "usage: pose_estimation_2d2d img1 img2" << endl;
+    // return 1;
+    fname_1 = (char *)"1.png";
+    fname_2 = (char *)"2.png";
+  }
+  else {
+    fname_1 = argv[1];
+    fname_2 = argv[2];
   }
   //-- 读取图像
-  Mat img_1 = imread(argv[1], IMREAD_COLOR);
-  Mat img_2 = imread(argv[2], IMREAD_COLOR);
+  Mat img_1 = imread(fname_1, IMREAD_COLOR);
+  Mat img_2 = imread(fname_2, IMREAD_COLOR);
   assert(img_1.data && img_2.data && "Can not load images!");
 
   vector<KeyPoint> keypoints_1, keypoints_2;

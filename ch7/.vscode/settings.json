@@ -1,0 +1,7 @@
+{
+    "cmake.debugConfig": {
+        "args": [ # debuger starts at the dir where the exe exists.
+            "../1.png", "../2.png", "../1_depth.png", "../2_depth.png"
+        ]
+    }
+}

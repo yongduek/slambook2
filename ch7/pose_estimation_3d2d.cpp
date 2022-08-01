@@ -1,4 +1,5 @@
 #include <iostream>
+// #include <filesystem>
 #include <opencv2/core/core.hpp>
 #include <opencv2/features2d/features2d.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -46,7 +47,9 @@ void bundleAdjustmentGaussNewton(
 );
 
 int main(int argc, char **argv) {
+  // cout << std::filesystem::current_path() << endl;
   if (argc != 5) {
+    cout << argv[0] << endl;
     cout << "usage: pose_estimation_3d2d img1 img2 depth1 depth2" << endl;
     return 1;
   }
