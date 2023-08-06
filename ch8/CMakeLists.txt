@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.18)
 project(ch8)
 
 set(CMAKE_BUILD_TYPE "Release")
@@ -9,12 +9,16 @@ find_package(OpenCV 4 REQUIRED)
 find_package(Sophus REQUIRED)
 find_package(Pangolin REQUIRED)
 
+set(Boost_DIR /usr/local/boost_1_82_0)
+find_package(Boost REQUIRED)
+
 include_directories(
         ${OpenCV_INCLUDE_DIRS}
         ${G2O_INCLUDE_DIRS}
         ${Sophus_INCLUDE_DIRS}
         "/usr/include/eigen3/"
         ${Pangolin_INCLUDE_DIRS}
+        ${Boost_INCLUDE_DIRS}
 )
 
 add_executable(optical_flow optical_flow.cpp)
