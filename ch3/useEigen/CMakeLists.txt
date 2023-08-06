@@ -1,6 +1,6 @@
 # https://www.google.com/search?q=vscode+cmake+c%2B%2B+how+to+build&oq=vscode+cmake+c%2B%2B+how+to+build&aqs=chrome..69i57j0i22i30.15689j0j4&sourceid=chrome&ie=UTF-8#kpvalbx=_-AraYoSzKcfQ2roP0qe-qAs30
 
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.11)
 project(useEigen)
 
 # set(CMAKE_BUILD_TYPE "Debug")

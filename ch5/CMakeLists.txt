@@ -1,4 +1,5 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.18)
+project(ch5_cameras_images)
 
 set(CMAKE_BUILD_TYPE "Release")
 # 添加c++ 11标准支持
@@ -8,9 +9,11 @@ set(CMAKE_CXX_FLAGS "-std=c++11 -O2")
 include_directories("/usr/include/eigen3")
 
 # 寻找OpenCV库
+set(OpenCV_DIR /usr/local)
 find_package(OpenCV REQUIRED)
 # 添加头文件
 include_directories(${OpenCV_INCLUDE_DIRS})
+message("OpenCV_INCLUDE_DIRS:  ${OpenCV_INCLUDE_DIRS}  ${OpenCV_LIBS_DIRS}")
 
 add_subdirectory(imageBasics)
 add_subdirectory(stereo)
