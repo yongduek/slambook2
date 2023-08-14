@@ -128,7 +128,7 @@ int main(int argc, char **argv) {
     bal_problem.Perturb(0.1, 0.5, 0.5);
     bal_problem.WriteToPLYFile("initial.ply");
     SolveBA(bal_problem);
-    bal_problem.WriteToPLYFile("final.ply");
+    bal_problem.WriteToPLYFile("final_g2o.ply");
 
     return 0;
 }
